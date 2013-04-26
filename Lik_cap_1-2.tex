@@ -75,8 +75,9 @@
 \providecommand{\R}{\textsf{R}\xspace}
 
 
-\title{Revisão de resultados da Teoria das Probabilidades}
-\author[MATH 232]{Fernando}
+\title[Verossimilhança]{Verossimilhança --- Capítulos 1 e 2\\
+  Revisão de resultados da Teoria de Probabilidades}
+\author[MATH 232]{}
 %% \institute[Universidade Federal de Santa Catarina (UFSC)]{Departamento
 %%   de Ecologia e Zoologia (ECZ) \\ Universidade Federal de Santa Catarina
 %%   (UFSC)}
@@ -114,6 +115,154 @@
 \tableofcontents
 \end{frame}
 
+\section{Variáveis aleatórias}
+\label{sec:va}
+
+\begin{frame}{Variáveis aleatórias}
+  Vamos considerar apenas variáveis quantitativas (qualitativas devem
+  ser tratadas de maneira apropriada \ldots)\\
+  \textbf{Definição ``intuitiva''}
+  \begin{itemize}
+  \item Uma \textbf{variável} é uma característica de uma população que
+    pode ser mensurada
+  \item Uma \textbf{variável} é dita \textbf{aleatória} quando não
+    podemos \underline{determinar} seu resultado (embora possamos
+    \underline{prever}, conforme será mostrado adiante)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Variáveis aleatórias}
+  \textbf{Definição ``fraca''} (Meyer, Dantas)
+  \begin{itemize}
+  \item Variável Aleatória (VA) é uma função $X(\omega)$, de um evento
+    (realização) $\omega$, definida em um espaço
+    amostral $\Omega$, que assume valores reais $\mathbb{R}$
+    \begin{equation*}
+      X(\omega) = \omega;\ \qquad X(\omega) \in \mathbb{R},\ \omega
+      \in \Omega
+    \end{equation*}
+  \item Se a VA $X(\omega)$ assume valores enumeráveis (não
+    necessariamente finitos), são denominadas \textbf{discretas}
+  \item Se a VA $X(\omega)$ assume valores em um intervalo da reta real,
+    são denominadas \textbf{contínuas}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Variáveis aleatórias}
+  \textbf{Definição ``forte'' (formal)} (Magalhães, James)
+  \begin{itemize}
+  \item Definida em função de $\sigma$-álgebra, \ldots
+  \item[-] Não
+  \end{itemize}
+\end{frame}
+
+\subsection[Discretas]{Variáveis aleatórias discretas}
+\label{sec:vadisc}
+
+\begin{frame}{Variáveis aleatórias discretas}
+  Uma VA \textbf{discreta} é uma função que atribui uma probabilidade a
+  cada valor específico. É denominada \textit{função discreta de
+    probabilidade}, \textit{função massa de probabilidade} e é denotada por
+  \begin{equation*}
+    P(X = x_i) = p(x_i) = p_i, \quad i = 1, 2, \ldots
+  \end{equation*}
+  e tem as seguintes propriedades:
+  \begin{enumerate}
+  \item $\sum_{i} P(X = x_i) = 1$
+  \item $0 \leq P(X = x_i) \leq 1$
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Variáveis aleatórias discretas}
+  \begin{itemize}
+  \item Exemplos \ldots
+  \item Principais ``funções'' discretas
+    \begin{itemize}
+    \item Binomial
+    \item Poisson
+    \item Hipergeométrica
+    \item Binomial negativa
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\subsection[Contínuas]{Variáveis aleatórias contínuas}
+\label{sec:vacont}
+
+\begin{frame}{Variáveis aleatórias contínuas}
+  \begin{itemize}
+  \item Para uma VA \textbf{contínua}, não é possível atribuir uma
+    probabilidade a um valor específico, pois existe uma quantidade não
+    enumerável de valores positivos em um ponto da reta, e portanto a
+    soma não poderia ser 1.
+  \item Por isso, devemos atribuir probabilidades à \textbf{intervalos} de
+    valores da VA contínua, por meio da função $f(x)$ que a
+    descreve. Essa função deve ter as seguintes propriedades:
+    \begin{enumerate}
+    \item $f(x) \geq 0 \quad \forall\, x \in (-\infty,\infty)$
+    \item $\int_{-\infty}^{\infty} f(x) dx = 1$
+    \end{enumerate}
+    Portanto, para calcular uma probabilidade para um intervalo entre $a
+    \leq b$, temos a relação
+    \begin{equation*}
+      P(a \leq X \leq b) = \int_{a}^{b} f(x) dx
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Variáveis aleatórias contínuas}
+  VAs contínuas também podem ser definidas pela \textit{função de
+    distribuição acumulada} $F(x)$,
+  \begin{equation*}
+    F(X) = P(X \leq x)
+  \end{equation*}
+  que possui as seguintes propriedades
+  \begin{enumerate}
+  \item $0 \leq F(x) \leq 1$
+  \item $F(x)$ é não decrescente, e contínua à direita
+  \item $\lim_{x \rightarrow -\infty} F(x) = 0$ e
+    $\lim_{x \rightarrow \infty} F(x) = 1$
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Variáveis aleatórias contínuas}
+  Pelas definições da fda, podemos agora calcular probabilidades entre
+  $x$ e $x + dx$ (onde $dx > 0$ é um valor incremental), através de
+  \begin{equation*}
+    P(x \leq X \leq x + dx) = F(x + dx) - F(x)
+  \end{equation*}
+\end{frame}
+
+\begin{frame}{Variáveis aleatórias contínuas}
+  \begin{itemize}
+  \item Exemplos \ldots
+  \item Principais ``funções'' contínuas
+    \begin{itemize}
+    \item Beta
+    \item Exponencial
+    \item Gama
+    \item Uniforme
+    \item Normal
+    \item t-Student
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\section{Variáveis aleatórias bidimensionais}
+\label{sec:vabi}
+
+\begin{frame}{Variáveis aleatórias bidimensionais}
+
+\end{frame}
+
+\section{Esperança de variáveis aleatórias}
+\label{sec:eva}
+
+\begin{frame}{Esperança de variáveis aleatórias}
+
+\end{frame}
+
 \section{Distribuições de probabilidade}
 
 \begin{frame}[fragile=singleslide]{Distribuições de probabilidade}
@@ -149,7 +298,12 @@ Uniforme & \texttt{*unif} & \texttt{min, max}\\
 \end{center}
 \end{frame}
 
+\section{Teorema do Limite Central}
+\label{sec:tlc}
 
+\begin{frame}{Teorema do Limite Central}
+
+\end{frame}
 
 
 \end{document}
