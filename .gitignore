@@ -4,6 +4,8 @@
 *.toc
 *.lof
 *.lot
+*.nav
+*.snm
 .~lock*
 *.zip
 .Rdata
