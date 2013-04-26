@@ -60,7 +60,7 @@ opts_chunk$set(size = "small",
                fig.height = 5)
 thm <- knit_theme$get("beamer2")
 knit_theme$set(thm)
-options(width = 65, digits = 5, continue = "  ")
+options(width = 60, digits = 5, continue = "  ")
 @
 
 \begin{frame}
@@ -254,6 +254,55 @@ Uniforme & \texttt{*unif} & \texttt{min, max}\\
 \end{tabular}
 \end{center}
 \end{frame}
+
+\begin{frame}[fragile=singleslide]{Distribuições de probabilidade}
+Aplicando no R
+<<out.width=".4\\textwidth">>=
+rnorm(10)
+hist(rnorm(100))
+@
+\end{frame}
+
+\begin{frame}[fragile=singleslide]{Distribuições de probabilidade}
+<<out.width=".7\\textwidth", echo=FALSE>>=
+set.seed(0)
+x <- rnorm(10000)
+hist(x, main = "Distribuição normal padrão N(0,1)",
+     xlab = "", ylab = "", axes = FALSE, prob = TRUE)
+axis(1, at = -4:4, labels = -4:4)
+lines(density(x), col = 2)
+@
+\end{frame}
+
+\begin{frame}[fragile=singleslide]{Distribuições de probabilidade}
+<<out.width=".49\\textwidth", echo=FALSE, fig.show="hold">>=
+set.seed(1)
+t1 <- rt(10000, 10)
+set.seed(0)
+t2 <- rt(10000, 100)
+hist(t1, main = "Distribuição t(df); df = 10",
+     xlab = "", ylab = "", axes = FALSE, prob = TRUE)
+axis(1, at = -7:7, labels = -7:7)
+lines(density(t1), col = 2)
+hist(t2, main = "Distribuição t(df); df = 100",
+     xlab = "", ylab = "", axes = FALSE, prob = TRUE)
+axis(1, at = -4:4, labels = -4:4)
+lines(density(t2), col = 2)
+@
+\end{frame}
+
+\begin{frame}[fragile=singleslide]{Distribuições de probabilidade}
+Alguns exemplos:
+<<>>=
+# quantis de z
+qnorm(0.025)
+qnorm(0.975)
+# quantis de t com diferentes G.L.
+qt(0.025, df = 9)
+qt(0.025,df = 900)
+@
+\end{frame}
+
 
 \section{Teorema do Limite Central}
 \label{sec:tlc}

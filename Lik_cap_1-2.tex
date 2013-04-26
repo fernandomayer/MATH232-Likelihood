@@ -298,6 +298,97 @@ Uniforme & \texttt{*unif} & \texttt{min, max}\\
 \end{center}
 \end{frame}
 
+\begin{frame}[fragile=singleslide]{Distribuições de probabilidade}
+Aplicando no R
+\begin{knitrout}\small
+\definecolor{shadecolor}{rgb}{0.933, 0.914, 0.914}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+> \hlfunctioncall{rnorm}(10)
+\end{alltt}
+\begin{verbatim}
+ [1]  0.048592  0.219971 -0.402351  0.147845  1.167548
+ [6] -0.924155 -0.173920  0.719823  1.522894 -0.595841
+\end{verbatim}
+\begin{alltt}
+> \hlfunctioncall{hist}(\hlfunctioncall{rnorm}(100))
+\end{alltt}
+\end{kframe}
+
+{\centering \includegraphics[width=.4\textwidth]{figure/unnamed-chunk-1} 
+
+}
+
+
+
+\end{knitrout}
+
+\end{frame}
+
+\begin{frame}[fragile=singleslide]{Distribuições de probabilidade}
+\begin{knitrout}\small
+\definecolor{shadecolor}{rgb}{0.933, 0.914, 0.914}\color{fgcolor}
+
+{\centering \includegraphics[width=.7\textwidth]{figure/unnamed-chunk-2} 
+
+}
+
+
+
+\end{knitrout}
+
+\end{frame}
+
+\begin{frame}[fragile=singleslide]{Distribuições de probabilidade}
+\begin{knitrout}\small
+\definecolor{shadecolor}{rgb}{0.933, 0.914, 0.914}\color{fgcolor}
+
+{\centering \includegraphics[width=.49\textwidth]{figure/unnamed-chunk-31} 
+\includegraphics[width=.49\textwidth]{figure/unnamed-chunk-32} 
+
+}
+
+
+
+\end{knitrout}
+
+\end{frame}
+
+\begin{frame}[fragile=singleslide]{Distribuições de probabilidade}
+Alguns exemplos:
+\begin{knitrout}\small
+\definecolor{shadecolor}{rgb}{0.933, 0.914, 0.914}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+> \hlcomment{# quantis de z}
+> \hlfunctioncall{qnorm}(0.025)
+\end{alltt}
+\begin{verbatim}
+[1] -1.96
+\end{verbatim}
+\begin{alltt}
+> \hlfunctioncall{qnorm}(0.975)
+\end{alltt}
+\begin{verbatim}
+[1] 1.96
+\end{verbatim}
+\begin{alltt}
+> \hlcomment{# quantis de t com diferentes G.L.}
+> \hlfunctioncall{qt}(0.025, df = 9)
+\end{alltt}
+\begin{verbatim}
+[1] -2.2622
+\end{verbatim}
+\begin{alltt}
+> \hlfunctioncall{qt}(0.025,df = 900)
+\end{alltt}
+\begin{verbatim}
+[1] -1.9626
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+\end{frame}
+
+
 \section{Teorema do Limite Central}
 \label{sec:tlc}
 
