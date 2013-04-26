@@ -1,0 +1,112 @@
+\documentclass[10pt]{beamer}
+
+\usetheme[compress]{PaloAlto}
+\usecolortheme{sidebartab}
+%\logo{\includegraphics[width=1cm]{../Rlogo-5.png}}
+
+\usepackage[brazilian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[scaled]{beramono} % truetype: Bistream Vera Sans Mono
+%\usepackage{inconsolata}
+
+\setbeamertemplate{footline}[frame number] % mostra o numero dos slides
+\setbeamertemplate{navigation symbols}{} % retira a barra de navegacao
+
+\usepackage{xspace}
+\providecommand{\eg}{\textit{e.g.}\xspace}
+\providecommand{\ie}{\textit{i.e.}\xspace}
+\providecommand{\R}{\textsf{R}\xspace}
+
+
+\title{Revisão de resultados da Teoria das Probabilidades}
+\author[MATH 232]{Fernando}
+%% \institute[Universidade Federal de Santa Catarina (UFSC)]{Departamento
+%%   de Ecologia e Zoologia (ECZ) \\ Universidade Federal de Santa Catarina
+%%   (UFSC)}
+\date{\today}
+%\logo{\includegraphics[width=1cm]{../vertical_sigla_fundo_claro.pdf}}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Sumário}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}
+    \frametitle{Sumário}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+\begin{document}
+
+<<setup, include=FALSE, cache=FALSE>>=
+# smaller font size for chunks
+opts_chunk$set(size = "small",
+               prompt = TRUE,
+               comment = NA,
+               tidy = FALSE,
+               cache = TRUE,
+               fig.align = "center",
+               fig.width = 5,
+               fig.height = 5)
+thm <- knit_theme$get("beamer2")
+knit_theme$set(thm)
+options(width = 65, digits = 5, continue = "  ")
+@
+
+\begin{frame}
+\maketitle
+%\titlepage
+\end{frame}
+
+\begin{frame}{Sumário}
+\tableofcontents
+\end{frame}
+
+\section{Distribuições de probabilidade}
+
+\begin{frame}[fragile=singleslide]{Distribuições de probabilidade}
+A maioria das distribuições de probabilidade tradicionais estão
+implementadas no R, e podem ser utilizadas para substituir as tabelas
+estatísticas tradicionais. Existem 4 itens fundamentais que podem ser
+calculados para cada distribuição:
+\begin{itemize}
+\item[d*] Calcula a densidade de probabilidade ou probabilidade pontual
+\item[p*] Calcula a função de probabilidade acumulada
+\item[q*] Calcula o quantil correspondente a uma dada probabilidade
+\item[r*] Gera números aleatórios (ou ``pseudo-aleatórios'')
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]{Distribuições de probabilidade}
+As distribuições de probabilidade mais comuns são:
+\begin{center}
+% use packages: array
+\begin{tabular}{lll}
+\hline
+Distribuição & Nome no \R & Parâmetros \\
+\hline
+Binomial & \texttt{*binom} & \texttt{size, prob} \\
+$\chi^2$ & \texttt{*chisq} & \texttt{df} \\
+
+Normal & \texttt{*norm} & \texttt{mean, sd} \\
+Poisson & \texttt{*pois} & \texttt{lambda} \\
+t & \texttt{*t} & \texttt{df} \\
+Uniforme & \texttt{*unif} & \texttt{min, max}\\
+\hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+
+
+
+\end{document}
